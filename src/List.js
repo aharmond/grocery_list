@@ -1,11 +1,13 @@
 import React from 'react';
+import Cart from './Cart';
 
-const List = ({ items, name }) => (
+const List = ({ groceries, name, groceryClick, emptyClick }) => (
   <div>
     <h2>{name}</h2>
     <ul>
-      { items.map( item => <li key={item.id}>{item.name}</li>) }
+      { groceries.map( grocery => <Cart key={grocery.id} {...grocery} groceryClick={groceryClick} /> )}
     </ul>
+    <button onClick={ () => emptyClick(groceries)}>Empty</button>
   </div>
 )
 
